@@ -1,5 +1,7 @@
 
-import styles from "./CadastrarInformacoes.module.css";
+import styles from "../../../components/forms/Input/Input.module.css";
+import Input from "../../../components/forms/Input/Input";
+import Textarea from "../../../components/forms/textarea/textarea";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
@@ -33,6 +35,7 @@ const CadastrarInformacoes: React.FC = () => {
         console.log(values);
         resetForm();
         alert('Formulário enviado com sucesso!');
+        
     };
 
     return (
@@ -40,32 +43,45 @@ const CadastrarInformacoes: React.FC = () => {
             
             <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
 
-            <form action="" className={styles.form}>
+            {({ errors, touched }) => (
+
+            <Form className={styles.form}>
 
                 <h2 className={styles.title}> Informações Pessoais </h2>
                 
-                <fieldset className={styles.formGroup}>
-                    <label htmlFor="foto" className={styles.label}>Foto </label>
-                    <input type="text" name="foto" id="foto" className={styles.input} />
-                </fieldset>
+                        <Input
+                            label="Foto"
+                            name="foto"
+                            errors={errors.foto}
+                            touched={touched.foto}
+                        />
 
-                <fieldset className={styles.formGroup}>
-                    <label htmlFor="Nome" className={styles.label}>Nome </label>
-                    <input type="text" name="Nome" id="Nome" className={styles.input} />
-                </fieldset>
+                        <Input
+                            label="Nome"
+                            name="nome"
+                            errors={errors.nome}
+                            touched={touched.nome}
+                        />
 
-                <fieldset className={styles.formGroup}>
-                    <label htmlFor="cargo" className={styles.label}>Cargo </label>
-                    <input type="text" name="cargo" id="cargo" className={styles.input} />
-                </fieldset>
+                        <Input
+                            label="Cargo"
+                            name="cargo"
+                            errors={errors.cargo}
+                            touched={touched.cargo}
+                        />
 
-                <fieldset className={styles.formGroup}>
-                    <label htmlFor="resumo" className={styles.label}>Resumo </label>
-                    <textarea name="resumo" id="resumo" className={styles.textarea} />
-                </fieldset>
+                        <Textarea
+                            label="Resumo"
+                            name="resumo"
+                            errors={errors.resumo}
+                            touched={touched.resumo}
+                        />
+
+                        <button type="submit" className={styles.button}>Salvar</button>
 
             
-            </form>
+            </Form>
+            )}
             </Formik>
 
         </div>
