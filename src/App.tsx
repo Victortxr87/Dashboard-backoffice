@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from './components/layout/layout';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import CadastrarInformacoes from './pages/Curriculo/Cadastrarinformacoes';
 
 const App: React.FC = () => {
   return (
@@ -9,6 +10,7 @@ const App: React.FC = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/curriculo/informacoes/cadastro" element={<CadastrarInformacoes />} />
         </Routes>
       </Layout>
     </BrowserRouter>
