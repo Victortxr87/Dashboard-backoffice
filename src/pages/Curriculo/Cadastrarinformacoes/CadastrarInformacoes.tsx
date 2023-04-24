@@ -47,7 +47,7 @@ const CadastrarInformacoes: React.FC = () => {
 
             <Form className={styles.form}>
 
-                <h2 className={styles.title}> Informações Pessoais </h2>
+                <h2 className={styles.title}> Cadastradar Informações </h2>
                 
                         <Input
                             label="Foto"
