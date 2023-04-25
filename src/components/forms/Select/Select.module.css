@@ -1,0 +1,46 @@
+.formGroup {
+    display: flex;
+    flex-direction: column; 
+    margin-bottom: 20px; 
+    width: 100%;
+    border: none;
+}
+
+
+.label{
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    margin-left: 37px;
+}
+
+.input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #d6d1d1;
+    margin-top: 5px;
+    width: center;
+    margin-left: 50px;
+}
+Select{
+
+    margin-left: 30px;
+    width: 90%;
+
+}
+
+
+
+.error {
+    border: 2px solid #ff6666;
+    margin-left: 37px;
+    
+}
+
+.errorMsg {
+    color:#ff6666;
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: bold;
+    margin-left: 37px;
+}

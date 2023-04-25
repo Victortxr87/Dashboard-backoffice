@@ -6,8 +6,8 @@ import CadastrarInformacoes from './pages/Curriculo/Cadastrarinformacoes';
 import CadastrarExperiencia from './pages/Curriculo/CadastrarExperiencia';
 import ListaExperiencia from './pages/Curriculo/ListaExperiencia';
 
-// import CadastrarPortfolio from './pages/portfolio/CadastrarPortfolio';
-import ListaPortfolio from './pages/Portfolio/ListaPortfolio';
+import CadastrarPortfolio from './pages/Portfolio/CadastrarPortfolio';
+import ListaPortfolio from './pages/Portfolio/ListaPortifolio/ListaPortfolio';
 
 const App: React.FC = () => {
   return (
@@ -20,7 +20,7 @@ const App: React.FC = () => {
           <Route path="/curriculo/experiencia/lista" element={<ListaExperiencia />} />
 
 
-          {/* <Route path="/portfolio/cadastro" element={<CadastrarPortfolio />} /> */}
+          <Route path="/portfolio/cadastro" element={<CadastrarPortfolio />} />
           <Route path="/portfolio/lista" element={<ListaPortfolio />} />
         </Routes>
       </Layout>
