@@ -13,3 +13,7 @@ export async function createInfomacoes(informacoes: Informacoes): Promise<Inform
     return response.data;
 }
 
+export async function getInformacoes(): Promise<Informacoes> {
+    const response = await api.get<Informacoes>('/informacoes/1');
+    return response.data;
+}

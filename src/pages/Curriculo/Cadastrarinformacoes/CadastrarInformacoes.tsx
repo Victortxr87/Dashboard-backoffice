@@ -1,11 +1,12 @@
-
+import React, { useEffect, useState } from "react";
 import styles from "../../../components/forms/Input/Input.module.css";
 import Input from "../../../components/forms/Input/Input";
 import Textarea from "../../../components/forms/textarea/textarea";
-import { Informacoes, createInfomacoes } from "../../../services/informacoesServices";
+import { Informacoes, createInfomacoes, getInformacoes } from "../../../services/informacoesServices";
 
 import * as Yup from "yup";
 import { Formik, Form  } from "formik";
+import InformacoesCard from "./InformacoesCard/InformacoesCard";
 
 
 
@@ -13,12 +14,15 @@ import { Formik, Form  } from "formik";
 
 const CadastrarInformacoes: React.FC = () => {
 
+ const [informacoes, setInformacoes] = useState<Informacoes>({} as Informacoes);
+ 
+
     const initialValues: Informacoes = {
         id: 1,
         foto: '',
         nome: '',
         cargo: '',
-        resumo: ''
+        resumo: '',
     };
 
     const validationSchema = Yup.object().shape({
@@ -28,6 +32,20 @@ const CadastrarInformacoes: React.FC = () => {
         resumo: Yup.string().required('Campo obrigatório')
     });
 
+    const fetchInformacao = async () => {
+        try {
+            const informacao = await getInformacoes();
+            setInformacoes(informacao);
+        } catch (error) {
+            console.error('Erro ao buscar informações', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchInformacao();
+    }, []);
+
+
     const onSubmit = async (values: Informacoes, { resetForm }: { resetForm: () => void }) => {
         
 
@@ -35,7 +53,7 @@ const CadastrarInformacoes: React.FC = () => {
 
         try {
             await createInfomacoes(values);
-           
+           setInformacoes (values);
             console.log(values);
             // resetForm();
             alert('Formulário enviado com sucesso!');
@@ -94,12 +112,21 @@ const CadastrarInformacoes: React.FC = () => {
 
                         <button type="submit" className={styles.button}>Salvar</button>
 
+
+                        
             
             </Form>
+            
             )}
             </Formik>
 
+            <InformacoesCard informacoes={informacoes}/>
+
         </div>
+
+    
+
+        
     );
 };
 

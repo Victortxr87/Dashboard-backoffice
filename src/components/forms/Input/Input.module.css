@@ -1,6 +1,8 @@
-.form-wrapper {
+.formWrapper {
     display: flex;
+    align-items: center;
     justify-content: center;
+    
     
     
 }
@@ -14,7 +16,7 @@
     border-radius: 10px;
     padding: 20px; 
     margin: 50px;
-    margin-left: 300px;
+  
 }
 
 .formGroup {
