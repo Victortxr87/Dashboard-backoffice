@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../../components/forms/Input/Input.module.css";
 import Input from "../../../components/forms/Input/Input";
 import Textarea from "../../../components/forms/textarea/textarea";
-import { Informacoes, createInfomacoes, getInformacoes } from "../../../services/informacoesServices";
+import { Informacoes, upadateInfomacoes, getInformacoes } from "../../../services/informacoesServices";
+import styles from "./CadastrarInformacoes.module.css";
 
 import * as Yup from "yup";
 import { Formik, Form  } from "formik";
@@ -52,7 +52,7 @@ const CadastrarInformacoes: React.FC = () => {
 
 
         try {
-            await createInfomacoes(values);
+            await upadateInfomacoes(values);
            setInformacoes (values);
             console.log(values);
             // resetForm();
@@ -64,17 +64,29 @@ const CadastrarInformacoes: React.FC = () => {
             alert('Erro ao enviar formulário. Tente novamente.');
 
         }
-        // //Lógica de envio para backend
-        // console.log(values);
-        // resetForm();
-        // alert('Formulário enviado com sucesso!');
         
+    };
+
+    const handleDelete = async () => {
+
+            try {
+            await upadateInfomacoes(initialValues);
+            setInformacoes (initialValues);
+            alert('Informações deletadas com sucesso!');
+        } catch (error) {
+            console.error('Erro ao deletar informações', error);
+            alert('Erro ao deletar informações. Tente novamente.');
+        }
     };
 
     return (
         <div className={styles.formWrapper}>
             
-            <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+            <Formik 
+            initialValues={informacoes} 
+            enableReinitialize={true} 
+            validationSchema={validationSchema}
+             onSubmit={onSubmit}>
 
             {({ errors, touched }) => (
 
@@ -120,8 +132,23 @@ const CadastrarInformacoes: React.FC = () => {
             )}
             </Formik>
 
-            <InformacoesCard informacoes={informacoes}/>
+            
+            {informacoes &&
+                Object.entries(informacoes).some(
+                    ([Key, value]) => Key !== "id" && value.trim() !== ""
+                ) && (
 
+            <div className={styles.cardContainer}>
+            <InformacoesCard informacoes={informacoes}/>
+            <button 
+                    type="button" 
+                    onClick={handleDelete} 
+                    className={`${styles.button} ${styles.deleteButton}`}>
+                     Deletar
+                </button>
+              </div>
+                )
+                };
         </div>
 
     

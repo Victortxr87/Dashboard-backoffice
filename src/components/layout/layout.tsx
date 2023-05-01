@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Sidebar from './Sidebar';
 import styles from "./Layout.module.css";
+import AppRoutes from '../../routes/AppRoutes';
 
 interface LayoutProps {
     children: ReactNode;
@@ -15,6 +16,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className={styles.main}>
                 <Sidebar />
                 <div className={styles.content}>{children}</div>
+                
             </div>
             <Footer />
         </div>

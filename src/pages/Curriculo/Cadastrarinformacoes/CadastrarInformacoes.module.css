@@ -3,8 +3,7 @@
     align-items: center;
     justify-content: center;
     
-    
-    
+
 }
 
 .form {
@@ -65,7 +64,7 @@
     text-align: center;
     text-decoration: none;
     color: #fff; 
-    background-color: #fff;
+    background-color: #0077cc;
     border-radius: 0.25rem;
     border: none;
     cursor: pointer;
@@ -86,3 +85,23 @@
     margin-top: 5px;
     font-weight: bold;
 }
+
+
+.deleteButton{
+width: 50%;
+background-color: rgb(252, 78, 78);
+margin:  0 auto;
+justify-content: center;
+display: flex;
+
+
+}   
+.deleteButton:hover{
+
+    background-color: #f10707;;
+   
+    
+    
+}   
+
+    

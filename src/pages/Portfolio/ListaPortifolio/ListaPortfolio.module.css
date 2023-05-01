@@ -12,9 +12,27 @@ th, td {
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #0c0808;
 }
 
 .image {
     width: 100px;
 }
+
+.editar {
+    background-color: rgb(77, 189, 62);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+  }
+  
+  .excluir {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  

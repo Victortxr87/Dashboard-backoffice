@@ -1,47 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./ListaExperiencia.module.css";
+import {Experiencia,deleteExperiencia,getExperiencias} from "../../../services/experienciaService";
+import { useNavigate } from "react-router-dom";
 
-interface Experiencia {
-    titulo: string;
-    descricao: string;
-    tipo: string;
-    anoInicio: string;
-    anoFim: string;
-}
+
 
 const ListaExperiencia: React.FC = () => {
+    
+    const navigate = useNavigate();
 
-    const [experiencias, setExperiencias] = React.useState<Experiencia[]>([
-        {
-            titulo: "Estágio em Desenvolvimento de Software",
-            descricao: "Desenvolvimento de aplicações web utilizando ReactJS, NodeJS",
-            tipo: "profissional",
-            anoInicio: "2019",
-            anoFim: "2020",
-        },
-        {
-            titulo: "Estágio em Desenvolvimento de Software",
-            descricao: "Desenvolvimento de aplicações web utilizando ReactJS, NodeJS",
-            tipo: "profissional",
-            anoInicio: "2019",
-            anoFim: "2020",
-        },
-        {
-            titulo: "Estágio em Desenvolvimento de Software",
-            descricao: "Desenvolvimento de aplicações web utilizando ReactJS, NodeJS",
-            tipo: "profissional",
-            anoInicio: "2019",
-            anoFim: "2020",
-        },
-    ]);
+    const [experiencias, setExperiencias] = React.useState<Experiencia[]>([]);
 
-    const handleDelete = (index: number) => {
-        //Lógica para excluir
-    }
+    const fetchExperiencias = async () => {
 
+        try {
+            const experiencias = await getExperiencias();
+            setExperiencias(experiencias);
+        } catch (error) {
+            console.log('Erro ao buscar experiencias', error);
+            
+        } 
+    };
+
+    useEffect(() => {
+        fetchExperiencias();
+    }, []);
+
+
+  
     const handleEdit = (experiencia: Experiencia) => {
-        //Lógica para editar
+        navigate("/curriculo/experiencia/cadastro", { state: experiencia });
     }
+    
+    const handleDelete = async (id: number) => {
+        try {
+            await deleteExperiencia(id);
+            fetchExperiencias();
+            alert("Experiência removida com sucesso!");
+        } catch (error) {
+            console.log("Erro ao remover experiência", error);
+            alert("Erro ao remover experiência. Tente novamente.");
+            
+        }
+
+    };
 
     return (
         <table className={styles.table}>
@@ -64,8 +66,10 @@ const ListaExperiencia: React.FC = () => {
                         <td>{experiencia.anoInicio}</td>
                         <td>{experiencia.anoFim}</td>
                         <td>
-                            <button onClick={() => handleEdit(experiencia)}>Editar</button>
-                            <button onClick={() => handleDelete(index)}>Excluir</button>
+                        
+                            
+                            <button className={styles.editar} onClick={() => handleEdit(experiencia)}>Editar</button>
+                            <button className={styles.excluir} onClick={() =>  handleDelete(experiencia.id)}>Excluir</button>
                         </td>
                     </tr>
                 ))}
