@@ -3,7 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Sidebar from './Sidebar';
 import styles from "./Layout.module.css";
-import AppRoutes from '../../routes/AppRoutes';
+
 
 interface LayoutProps {
     children: ReactNode;

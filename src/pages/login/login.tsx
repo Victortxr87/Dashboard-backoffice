@@ -1,4 +1,3 @@
-import React from "react";
 
 import * as Yup from "yup";
 import styles from "./login.module.css";
@@ -6,6 +5,7 @@ import Input from "../../components/forms/Input/Input";
 import { Formik, Form } from "formik";
 import { login as loginService } from "../../services/authServices";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AutContexts";
 
 
 interface LoginValues {
@@ -45,6 +45,8 @@ const validationSchema = Yup.object().shape({
         }
     };
 
+
+    
     return (
         <div className={styles.loginWrapper}>
              <div className={styles.formWrapper}>
@@ -87,9 +89,8 @@ const validationSchema = Yup.object().shape({
     );
 };
 
+
+
 export default Login;
 
-function useAuth(): { login: any; } {
-    throw new Error("Function not implemented.");
-}
 

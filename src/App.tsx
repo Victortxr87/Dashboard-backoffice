@@ -2,20 +2,19 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Login from './pages/login';
-import AppRoutes from './routes/AppRoutes';
+import AuthRoutes from './routes/AuthRoutes';
 import { AuthProvider } from './contexts/AutContexts';
 
 const App: React.FC = () => {
+
   return (
     
     <AuthProvider> 
-    <BrowserRouter>
-    
+    <BrowserRouter> 
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/*" element={<AppRoutes />} />
-        </Routes>
-      
+          <Route path="/*" element={<AuthRoutes />} />
+        </Routes>     
     </BrowserRouter>
     </AuthProvider>
   );

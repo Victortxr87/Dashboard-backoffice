@@ -6,8 +6,6 @@
       "password": "123456"
     }
   ],
-
-
   "informacoes": [
     {
       "id": 1,
@@ -21,7 +19,7 @@
     {
       "id": 2,
       "titulo": "Dev React",
-      "descricao": "Dev react em Comeia Labs",
+      "descricao": "Dev React em Comeia Labs",
       "tipo": "Profissional",
       "anoInicio": "2015",
       "anoFim": "2018"
