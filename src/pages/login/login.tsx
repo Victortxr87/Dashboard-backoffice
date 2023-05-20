@@ -59,7 +59,7 @@ const validationSchema = Yup.object().shape({
                 {({ errors, touched }) => (
                     <Form className={styles.form}>
                     
-                        <h1 className={styles.titile}> Meu site Pessoal</h1>
+                        <h1 className={styles.titile}> Login</h1>
 
                         <Input
                             label="E-mail"

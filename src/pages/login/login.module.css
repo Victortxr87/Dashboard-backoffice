@@ -37,12 +37,20 @@
     margin: 30px;
   
 }
+.form h1 {
+   font-size: 30px;
+   letter-spacing: 10px;
+   margin-bottom: 50px;
+  
+}
 
 .title {
     font-size: 24px; 
     margin-bottom: 20px;
     font-weight: bold;
+   
 }
+
 
 .label {
     font-weight: bold; 

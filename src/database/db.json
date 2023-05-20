@@ -12,7 +12,7 @@
       "foto": "https://github.com/Victortxr87.png",
       "nome": "JOAO VICTOR TEIXEIRA MARINHO",
       "cargo": "Analista de suporte",
-      "resumo": "Chat"
+      "resumo": "Chatyyy"
     }
   ],
   "experiencias": [
@@ -31,6 +31,14 @@
       "tipo": "Profissional",
       "anoInicio": "2015",
       "anoFim": "2022"
+    },
+    {
+      "id": 4,
+      "titulo": "Dev",
+      "descricao": "Ggwp",
+      "tipo": "academico",
+      "anoInicio": "2015",
+      "anoFim": "2020"
     }
   ],
   "Portfolio": [
