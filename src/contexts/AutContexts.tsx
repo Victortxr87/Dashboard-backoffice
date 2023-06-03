@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from "react";
-import { User } from "../services/userServices";
+import { User } from "../services/authServices";
 
 export interface AuthContextProps {
+  
   authenticated: boolean;
   user: User;
   login: (user: User) => void;
